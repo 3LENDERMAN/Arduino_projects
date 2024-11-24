@@ -142,7 +142,7 @@ void loop() {
   lcd.write(byte(5));
   lcd.setCursor(obstacle + 1, 1);
   lcd.print(" ");
-  // podmínka zdali stickman přeskočil bariéru:
+  // check if stickman jumped over barrier:
   if (horizontal == obstacle && vertical == 1) {
     lcd.clear();
     lcd.setCursor(0, 0);
@@ -152,7 +152,7 @@ void loop() {
     lcd.setCursor(11, 1);
     lcd.print(score);
     while(true);
-    // konec hry..
+    // end of the game..
   }
   vertical = 1;
   if (score > 125) {
@@ -166,7 +166,7 @@ void loop() {
     lcd.setCursor(horizontal, vertical);
     lcd.write(byte(0));
   }
-  // zjištění stlačeného tlačítka:
+  // check for pressed button:
   if (command < 60 && horizontal < 14) {
     horizontal++;
     lcd.clear();
@@ -204,7 +204,7 @@ void loop() {
   delay(150);
 }
 
-// úvodní strana hry:
+// start menu:
 void menu() {
   lcd.setCursor(2, 0);
   lcd.write(byte(0));
