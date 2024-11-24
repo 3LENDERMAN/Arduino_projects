@@ -17,7 +17,7 @@ void loop() {
   // first question
   for(scroll_position; scroll_position<100; scroll_position++){
     lcd.setCursor(1,0);
-    lcd.print("Welcome to QUIZ žžžžžžžžžžžžžžžžžGAME! You will be given");
+    lcd.print(startText);
     lcd.scrollDisplayLeft();
     delay(300);
   }
