@@ -20,7 +20,7 @@ void loop() {
   if (cmd > 50 && cmd < 195) {
     num++;
     lcd.setCursor(0, 1);
-    lcd.print("                ");  // Vymazání spodního řádku
+    lcd.print("                ");  // Remove bottom row
     lcd.setCursor(0, 1);
     lcd.print(num);
   }
@@ -28,7 +28,7 @@ void loop() {
   if (cmd > 195 && cmd < 380) {
     num--;
     lcd.setCursor(0, 1);
-    lcd.print("                ");  // Vymazání spodního řádku
+    lcd.print("                ");  // Remove bottom row
     lcd.setCursor(0, 1);
     lcd.print(num);
   }
