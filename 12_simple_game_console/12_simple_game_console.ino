@@ -124,7 +124,7 @@ void loop() {
       lcd.write(byte(4));
       lcd.setCursor(obstacle + 1, 1);
       lcd.print(" ");
-      // podmínka zdali stickman přeskočil bariéru:
+      // check if stickman jumped over barrier:
       if (horizontal == obstacle && vertical == 1) {
         lcd.clear();
         lcd.setCursor(0, 0);
@@ -134,29 +134,29 @@ void loop() {
         lcd.setCursor(11, 1);
         lcd.print(score);
         while(true);
-        // konec hry..
+        // end of the game..
       }
       vertical = 1;
       lcd.setCursor(horizontal, vertical);
       lcd.write(byte(0));
       
-      // zjištění stlačeného tlačítka:
+      // check for pressed button:
       if (command < 60 && horizontal < 14) {
-        horizontal++; // pohyb vpravo
+        horizontal++; // move stickman to right:
         lcd.clear();
         lcd.setCursor(horizontal, vertical);
         lcd.write(byte(0));
         delay(200);
       } 
       else if (command < 200) {
-        vertical--; // skok
+        vertical--; // jump
         lcd.clear();
         lcd.setCursor(horizontal, vertical);
         lcd.write(byte(3));
         delay(200);
       }
       else if (command < 400) {
-        vertical++; // dřep
+        vertical++; // squat
         lcd.clear();
         lcd.setCursor(horizontal, vertical);
         lcd.write(byte(2));
@@ -164,13 +164,13 @@ void loop() {
         vertical--;
       }
       else if (command < 600 && horizontal >= 0) {
-        horizontal--; // pohyb vlevo
+        horizontal--; // move stickam to left
         lcd.clear();
         lcd.setCursor(horizontal, vertical);
         lcd.write(byte(1));
         delay(200);
       }
-      // tlačítko select
+      // select button
       else if (command < 800) {
         lcd.clear();
       }
@@ -179,7 +179,7 @@ void loop() {
       }
     }
     else if (menuIndex == 1) {
-      // hra catch 2024:
+      // game catch 2024:
       int amount = 0;
       lcd.setCursor(0, 0);
       lcd.print(">< CATCH 2024 ><");
@@ -197,7 +197,7 @@ void loop() {
 
         while (temp != 0) {
           nDigits++;
-          temp /= 10; // zjisti cifry
+          temp /= 10; // count ciphers
         }
         int shift = 1 + nDigits;
         if (amount < 0) {
@@ -217,7 +217,7 @@ void loop() {
         }
       }
     }
-    // konec hra catch 2024
+    // end of the game catch 2024
     else if (menuIndex == 2) {
       lcd.begin(16,2);
       lcd.clear();
@@ -279,7 +279,7 @@ void isReady() {
     }
   }
 }
-// úvodní strana hry:
+// start menu of the game Stickman:
 void menuStickman() {
   lcd.clear();
   lcd.setCursor(2, 0);
